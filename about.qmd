@@ -5,4 +5,4 @@ about:
   template: jolla
 ---
 
-About this blog
+This blog will explore interesting patterns in tricky data
