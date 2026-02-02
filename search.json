@@ -7,13 +7,6 @@
     "text": "This blog will explore interesting patterns in tricky data"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Arhan’s Data Stories",
-    "section": "",
-    "text": "A test post\n\n\n\nvisualization\n\ndata stories\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nJan 12, 2026\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "posts/000_test_post/index.html",
     "href": "posts/000_test_post/index.html",
     "title": "A test post",
@@ -26,5 +19,19 @@
     "title": "A test post",
     "section": "Stories from data",
     "text": "Stories from data\n\nLet’s set up some data\n\n\nx = ['A', 'B', 'C']\ny = [1, 5, 3]\n\n\nNow let’s visualize it\n\nplt.bar(x, y)\nplt.show()"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Arhan’s Data Stories",
+    "section": "",
+    "text": "A test post\n\n\n\nvisualization\n\ndata stories\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nJan 12, 2026\n\n\nAn LLM User\n\n\n\n\n\n\n\n\n\n\n\n\nArhan’s data on medical knowledge\n\n\n\nLLMs\n\nLearning\n\n\n\nExploring medical data using LLMs\n\n\n\n\n\nFeb 1, 2025\n\n\nArhan\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/001_first_post/medical_knowledge.html",
+    "href": "posts/001_first_post/medical_knowledge.html",
+    "title": "Arhan’s data on medical knowledge",
+    "section": "",
+    "text": "Medical Data and LLMs\nWhere do they meet\nMedical data analysis using large language models enables clinicians and researchers to extract insights from unstructured records, clinical notes, and research papers. LLMs support diagnosis assistance, risk prediction, cohort analysis, and decision support while improving efficiency, accuracy, and personalization in modern healthcare systems.\n\nfrom IPython.display import display, Image\ndisplay(Image(\n    filename='PH-LLM.jpg',width=400\n))"
   }
 ]
