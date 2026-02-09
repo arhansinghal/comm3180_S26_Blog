@@ -190,14 +190,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Painfully cold</figcaption>
 </figure>
 </div>
-<div id="ad7c1fd1-26b5-4ca2-91c0-adfdd4a8d55e" class="cell" data-execution_count="13">
+<div id="ad7c1fd1-26b5-4ca2-91c0-adfdd4a8d55e" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"philadelphia_weather_2005_to_2025.csv"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"date"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"date"</span>])</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <div>
 
 
@@ -301,19 +301,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="5e430024-bb30-41c5-b504-5aa8e7f65353" class="cell" data-execution_count="14">
+<div id="5e430024-bb30-41c5-b504-5aa8e7f65353" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="39">
 <pre><code>(7665, 12)</code></pre>
 </div>
 </div>
 <p>Thats 7665 days! We’ve got a lot of data to work with and learn from but what exactly are we looking for?</p>
 <p><strong>Spring Break!</strong></p>
 <p>So let’s look at 7-15th March for these past years.</p>
-<div id="26cee042-33c3-4dfd-9fa4-9bdc09216c8e" class="cell" data-execution_count="24">
+<div id="26cee042-33c3-4dfd-9fa4-9bdc09216c8e" class="cell" data-execution_count="40">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>spring_break <span class="op">=</span> df[(df[<span class="st">"month"</span>] <span class="op">==</span> <span class="st">'March'</span>) <span class="op">&amp;</span> (df[<span class="st">"day_num"</span>] <span class="op">&gt;=</span> <span class="dv">7</span>) <span class="op">&amp;</span> (df[<span class="st">"day_num"</span>] <span class="op">&lt;=</span> <span class="dv">15</span>)]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>spring_break.head(<span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="40">
 <div>
 
 
@@ -509,9 +509,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Perfect! We’ve now only filtered for our desired dates from the entire dataset. This makes finding patterns we actually care about much easier. Lets see how that has changed our data</p>
-<div id="b864db1e-4038-41db-ba73-aadd82164017" class="cell" data-execution_count="21">
+<div id="b864db1e-4038-41db-ba73-aadd82164017" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>spring_break.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>(189, 12)</code></pre>
 </div>
 </div>
@@ -522,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>How often has it rained? and How much?</li>
 <li>How often has it snowed? and How much?</li>
 </ol>
-<div id="79ca11e3-614a-46d3-83b4-19187999d5da" class="cell" data-execution_count="26">
+<div id="79ca11e3-614a-46d3-83b4-19187999d5da" class="cell" data-execution_count="42">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>coldest_day <span class="op">=</span> spring_break.loc[spring_break[<span class="st">"low"</span>].idxmin(),<span class="st">'date'</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>warmest_day <span class="op">=</span> spring_break.loc[spring_break[<span class="st">"high"</span>].idxmax(),<span class="st">'date'</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>rainy_days <span class="op">=</span> spring_break[spring_break[<span class="st">"rain"</span>] <span class="op">&gt;</span> <span class="dv">0</span>].shape[<span class="dv">0</span>]</span>
@@ -547,7 +547,7 @@ It has snowed for a total of 0.0 inches</code></pre>
 <li>How often has it snowed? and How much? Never snowed</li>
 </ol>
 <p>Lets now figure out how warm/cold it might be nonetheless on average!</p>
-<div id="9a532670-731f-441c-b40d-fd9f0a2b5bc5" class="cell" data-execution_count="27">
+<div id="9a532670-731f-441c-b40d-fd9f0a2b5bc5" class="cell" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>high_average <span class="op">=</span> spring_break[<span class="st">'high'</span>].<span class="bu">sum</span>()<span class="op">/</span><span class="dv">189</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>low_average <span class="op">=</span> spring_break[<span class="st">'low'</span>].<span class="bu">sum</span>()<span class="op">/</span><span class="dv">189</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(high_average, low_average)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -559,7 +559,7 @@ It has snowed for a total of 0.0 inches</code></pre>
 <p><strong>Temperature lows</strong> average 37.44 degrees</p>
 <p>Thats a big range!</p>
 <p>Its also worthwhile to understand how temperatures are progress over the years instead of treating it as a 20 year block. Oftentimes, due to phenomena like global warming, temperatures increase over time. Let’s see if thats the case for Philadelphia over the past few years.</p>
-<div id="a8f4b726-486e-49d1-a128-75f5ab431a19" class="cell" data-execution_count="37">
+<div id="a8f4b726-486e-49d1-a128-75f5ab431a19" class="cell" data-execution_count="44">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>yearly_avg <span class="op">=</span> spring_break.groupby(<span class="st">"year"</span>)[<span class="st">"high"</span>].mean()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
