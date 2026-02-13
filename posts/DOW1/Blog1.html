@@ -190,14 +190,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption>Painfully cold</figcaption>
 </figure>
 </div>
-<div id="ad7c1fd1-26b5-4ca2-91c0-adfdd4a8d55e" class="cell" data-execution_count="38">
+<div id="ad7c1fd1-26b5-4ca2-91c0-adfdd4a8d55e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"philadelphia_weather_2005_to_2025.csv"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"date"</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">"date"</span>])</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
 
@@ -205,13 +205,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">date</th>
 <th data-quarto-table-cell-role="th">day</th>
 <th data-quarto-table-cell-role="th">year</th>
 <th data-quarto-table-cell-role="th">high</th>
 <th data-quarto-table-cell-role="th">low</th>
 <th data-quarto-table-cell-role="th">rain</th>
 <th data-quarto-table-cell-role="th">snow</th>
+<th data-quarto-table-cell-role="th">date</th>
 <th data-quarto-table-cell-role="th">day_num</th>
 <th data-quarto-table-cell-role="th">month_num</th>
 <th data-quarto-table-cell-role="th">dow</th>
@@ -222,13 +222,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">0</th>
-<td>2005-01-01</td>
 <td>January 1</td>
 <td>2005</td>
-<td>50</td>
+<td>64</td>
 <td>39</td>
 <td>0.00</td>
 <td>0.0</td>
+<td>2005-01-01</td>
 <td>1</td>
 <td>1</td>
 <td>5</td>
@@ -237,13 +237,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">1</th>
-<td>2005-01-02</td>
 <td>January 2</td>
 <td>2005</td>
-<td>43</td>
-<td>35</td>
-<td>0.00</td>
+<td>47</td>
+<td>33</td>
+<td>0.01</td>
 <td>0.0</td>
+<td>2005-01-02</td>
 <td>2</td>
 <td>1</td>
 <td>6</td>
@@ -252,13 +252,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">2</th>
-<td>2005-01-03</td>
 <td>January 3</td>
 <td>2005</td>
-<td>36</td>
-<td>30</td>
-<td>0.01</td>
-<td>0.1</td>
+<td>57</td>
+<td>40</td>
+<td>0.06</td>
+<td>0.0</td>
+<td>2005-01-03</td>
 <td>3</td>
 <td>1</td>
 <td>0</td>
@@ -267,13 +267,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">3</th>
-<td>2005-01-04</td>
 <td>January 4</td>
 <td>2005</td>
-<td>32</td>
-<td>27</td>
+<td>55</td>
+<td>44</td>
 <td>0.00</td>
 <td>0.0</td>
+<td>2005-01-04</td>
 <td>4</td>
 <td>1</td>
 <td>1</td>
@@ -282,13 +282,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">4</th>
-<td>2005-01-05</td>
 <td>January 5</td>
 <td>2005</td>
-<td>32</td>
-<td>22</td>
-<td>0.00</td>
+<td>47</td>
+<td>36</td>
+<td>0.62</td>
 <td>0.0</td>
+<td>2005-01-05</td>
 <td>5</td>
 <td>1</td>
 <td>2</td>
@@ -301,19 +301,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="5e430024-bb30-41c5-b504-5aa8e7f65353" class="cell" data-execution_count="39">
+<div id="5e430024-bb30-41c5-b504-5aa8e7f65353" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
-<pre><code>(7665, 12)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(7670, 12)</code></pre>
 </div>
 </div>
 <p>Thats 7665 days! We’ve got a lot of data to work with and learn from but what exactly are we looking for?</p>
 <p><strong>Spring Break!</strong></p>
 <p>So let’s look at 7-15th March for these past years.</p>
-<div id="26cee042-33c3-4dfd-9fa4-9bdc09216c8e" class="cell" data-execution_count="40">
+<div id="26cee042-33c3-4dfd-9fa4-9bdc09216c8e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>spring_break <span class="op">=</span> df[(df[<span class="st">"month"</span>] <span class="op">==</span> <span class="st">'March'</span>) <span class="op">&amp;</span> (df[<span class="st">"day_num"</span>] <span class="op">&gt;=</span> <span class="dv">7</span>) <span class="op">&amp;</span> (df[<span class="st">"day_num"</span>] <span class="op">&lt;=</span> <span class="dv">15</span>)]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>spring_break.head(<span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -321,13 +321,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">date</th>
 <th data-quarto-table-cell-role="th">day</th>
 <th data-quarto-table-cell-role="th">year</th>
 <th data-quarto-table-cell-role="th">high</th>
 <th data-quarto-table-cell-role="th">low</th>
 <th data-quarto-table-cell-role="th">rain</th>
 <th data-quarto-table-cell-role="th">snow</th>
+<th data-quarto-table-cell-role="th">date</th>
 <th data-quarto-table-cell-role="th">day_num</th>
 <th data-quarto-table-cell-role="th">month_num</th>
 <th data-quarto-table-cell-role="th">dow</th>
@@ -338,13 +338,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">65</th>
-<td>2005-03-07</td>
 <td>March 7</td>
 <td>2005</td>
-<td>53</td>
-<td>35</td>
+<td>69</td>
+<td>34</td>
+<td>0.00</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2005-03-07</td>
 <td>7</td>
 <td>3</td>
 <td>0</td>
@@ -353,13 +353,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">66</th>
-<td>2005-03-08</td>
 <td>March 8</td>
 <td>2005</td>
-<td>51</td>
-<td>38</td>
-<td>0.0</td>
-<td>0.0</td>
+<td>54</td>
+<td>21</td>
+<td>0.24</td>
+<td>0.5</td>
+<td>2005-03-08</td>
 <td>8</td>
 <td>3</td>
 <td>1</td>
@@ -368,13 +368,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">67</th>
-<td>2005-03-09</td>
 <td>March 9</td>
 <td>2005</td>
-<td>56</td>
-<td>30</td>
+<td>33</td>
+<td>18</td>
+<td>0.00</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2005-03-09</td>
 <td>9</td>
 <td>3</td>
 <td>2</td>
@@ -383,13 +383,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">68</th>
-<td>2005-03-10</td>
 <td>March 10</td>
 <td>2005</td>
-<td>68</td>
-<td>38</td>
+<td>35</td>
+<td>22</td>
+<td>0.00</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2005-03-10</td>
 <td>10</td>
 <td>3</td>
 <td>3</td>
@@ -398,13 +398,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">69</th>
-<td>2005-03-11</td>
 <td>March 11</td>
 <td>2005</td>
-<td>68</td>
-<td>35</td>
+<td>51</td>
+<td>30</td>
+<td>0.05</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2005-03-11</td>
 <td>11</td>
 <td>3</td>
 <td>4</td>
@@ -427,14 +427,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>...</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">3720</th>
-<td>2015-03-12</td>
+<th data-quarto-table-cell-role="th">3722</th>
 <td>March 12</td>
 <td>2015</td>
-<td>64</td>
-<td>40</td>
+<td>52</td>
+<td>37</td>
+<td>0.00</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2015-03-12</td>
 <td>12</td>
 <td>3</td>
 <td>3</td>
@@ -442,14 +442,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>March</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">3721</th>
-<td>2015-03-13</td>
+<th data-quarto-table-cell-role="th">3723</th>
 <td>March 13</td>
 <td>2015</td>
-<td>57</td>
-<td>38</td>
+<td>49</td>
+<td>30</td>
+<td>0.08</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2015-03-13</td>
 <td>13</td>
 <td>3</td>
 <td>4</td>
@@ -457,14 +457,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>March</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">3722</th>
-<td>2015-03-14</td>
+<th data-quarto-table-cell-role="th">3724</th>
 <td>March 14</td>
 <td>2015</td>
-<td>62</td>
-<td>42</td>
+<td>51</td>
+<td>38</td>
+<td>0.95</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2015-03-14</td>
 <td>14</td>
 <td>3</td>
 <td>5</td>
@@ -472,14 +472,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>March</td>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th">3723</th>
-<td>2015-03-15</td>
+<th data-quarto-table-cell-role="th">3725</th>
 <td>March 15</td>
 <td>2015</td>
-<td>55</td>
-<td>41</td>
+<td>48</td>
+<td>40</td>
+<td>0.00</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2015-03-15</td>
 <td>15</td>
 <td>3</td>
 <td>6</td>
@@ -487,14 +487,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>March</td>
 </tr>
 <tr class="odd">
-<th data-quarto-table-cell-role="th">4080</th>
-<td>2016-03-07</td>
+<th data-quarto-table-cell-role="th">4083</th>
 <td>March 7</td>
 <td>2016</td>
-<td>53</td>
-<td>35</td>
+<td>61</td>
+<td>33</td>
+<td>0.00</td>
 <td>0.0</td>
-<td>0.0</td>
+<td>2016-03-07</td>
 <td>7</td>
 <td>3</td>
 <td>0</td>
@@ -509,9 +509,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Perfect! We’ve now only filtered for our desired dates from the entire dataset. This makes finding patterns we actually care about much easier. Lets see how that has changed our data</p>
-<div id="b864db1e-4038-41db-ba73-aadd82164017" class="cell" data-execution_count="41">
+<div id="b864db1e-4038-41db-ba73-aadd82164017" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>spring_break.shape</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>(189, 12)</code></pre>
 </div>
 </div>
@@ -522,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>How often has it rained? and How much?</li>
 <li>How often has it snowed? and How much?</li>
 </ol>
-<div id="79ca11e3-614a-46d3-83b4-19187999d5da" class="cell" data-execution_count="42">
+<div id="79ca11e3-614a-46d3-83b4-19187999d5da" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>coldest_day <span class="op">=</span> spring_break.loc[spring_break[<span class="st">"low"</span>].idxmin(),<span class="st">'date'</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>warmest_day <span class="op">=</span> spring_break.loc[spring_break[<span class="st">"high"</span>].idxmax(),<span class="st">'date'</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>rainy_days <span class="op">=</span> spring_break[spring_break[<span class="st">"rain"</span>] <span class="op">&gt;</span> <span class="dv">0</span>].shape[<span class="dv">0</span>]</span>
@@ -534,10 +534,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'It has rained </span><span class="sc">{</span>rainy_days<span class="sc">}</span><span class="ss"> in past spring breaks for a total of </span><span class="sc">{</span>amount_of_rain<span class="sc">}</span><span class="ss"> inches'</span>)</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'It has snowed for a total of </span><span class="sc">{</span>amount_of_snow<span class="sc">}</span><span class="ss"> inches'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>The coldest day in the past springs was 2005-03-09 00:00:00
-The warmest day in the past springs was 2005-03-10 00:00:00
-It has rained 0 in past spring breaks for a total of 0.0 inches
-It has snowed for a total of 0.0 inches</code></pre>
+<pre><code>The coldest day in the past springs was 2015-03-07 00:00:00
+The warmest day in the past springs was 2016-03-09 00:00:00
+It has rained 53 in past spring breaks for a total of 19.91 inches
+It has snowed for a total of 15.8 inches</code></pre>
 </div>
 </div>
 <ol type="1">
@@ -547,19 +547,19 @@ It has snowed for a total of 0.0 inches</code></pre>
 <li>How often has it snowed? and How much? Never snowed</li>
 </ol>
 <p>Lets now figure out how warm/cold it might be nonetheless on average!</p>
-<div id="9a532670-731f-441c-b40d-fd9f0a2b5bc5" class="cell" data-execution_count="43">
+<div id="9a532670-731f-441c-b40d-fd9f0a2b5bc5" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>high_average <span class="op">=</span> spring_break[<span class="st">'high'</span>].<span class="bu">sum</span>()<span class="op">/</span><span class="dv">189</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>low_average <span class="op">=</span> spring_break[<span class="st">'low'</span>].<span class="bu">sum</span>()<span class="op">/</span><span class="dv">189</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(high_average, low_average)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>59.333333333333336 37.44444444444444</code></pre>
+<pre><code>55.03703703703704 36.01587301587302</code></pre>
 </div>
 </div>
 <p><strong>Temperature highs</strong> average 59.33 degrees</p>
 <p><strong>Temperature lows</strong> average 37.44 degrees</p>
 <p>Thats a big range!</p>
 <p>Its also worthwhile to understand how temperatures are progress over the years instead of treating it as a 20 year block. Oftentimes, due to phenomena like global warming, temperatures increase over time. Let’s see if thats the case for Philadelphia over the past few years.</p>
-<div id="a8f4b726-486e-49d1-a128-75f5ab431a19" class="cell" data-execution_count="44">
+<div id="a8f4b726-486e-49d1-a128-75f5ab431a19" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>yearly_avg <span class="op">=</span> spring_break.groupby(<span class="st">"year"</span>)[<span class="st">"high"</span>].mean()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
