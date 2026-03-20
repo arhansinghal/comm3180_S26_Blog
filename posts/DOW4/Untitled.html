@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>untitled – Arhan's Data Stories</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -20,10 +23,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -32,15 +70,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-afa37c5c79185640b9c231024f4fe5ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dea667461a5c81afc9ba75ce94cd63f3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +105,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
@@ -117,7 +157,516 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><strong>Philadelphia Crime Reports</strong></p>
+<p><strong>Accidents in Philadelphia - What can we learn from them?</strong></p>
+<p>Every city has its rhythms. Morning rush, late-night quiets and weekend energy. But what if we looked at those rhythms through a different lens? Instead of traffic flow, we look at traffic crashes.</p>
+<p>Using nearly two decades of PDOT crash data, we will try uncover patterns to answer questions like:</p>
+<p>Are crashes really worse during rush hour?</p>
+<p>Do weekends make roads more dangerous?</p>
+<p>Has safety improved over time?</p>
+<p>Let’s dive in.</p>
+<div id="551e6ab2-29e8-4427-bd49-a1f34bcfa1d9" class="cell" data-execution_count="43">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"PDOT_crash_data_2005_2024.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/tmp/ipykernel_3094128/423130451.py:3: DtypeWarning: Columns (0: INTERSECTION_RELATED, 1: SECONDARY_CRASH, 2: WZ_CLOSE_DETOUR, 3: WZ_WORKERS_INJ_KILLED) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv("PDOT_crash_data_2005_2024.csv")</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CRN</th>
+<th data-quarto-table-cell-role="th">ARRIVAL_TM</th>
+<th data-quarto-table-cell-role="th">AUTOMOBILE_COUNT</th>
+<th data-quarto-table-cell-role="th">BELTED_DEATH_COUNT</th>
+<th data-quarto-table-cell-role="th">BELTED_SUSP_SERIOUS_INJ_COUNT</th>
+<th data-quarto-table-cell-role="th">BICYCLE_COUNT</th>
+<th data-quarto-table-cell-role="th">BICYCLE_DEATH_COUNT</th>
+<th data-quarto-table-cell-role="th">BICYCLE_SUSP_SERIOUS_INJ_COUNT</th>
+<th data-quarto-table-cell-role="th">BUS_COUNT</th>
+<th data-quarto-table-cell-role="th">CHLDPAS_DEATH_COUNT</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">WORK_ZONE_LOC</th>
+<th data-quarto-table-cell-role="th">WORK_ZONE_TYPE</th>
+<th data-quarto-table-cell-role="th">WZ_CLOSE_DETOUR</th>
+<th data-quarto-table-cell-role="th">WZ_FLAGGER</th>
+<th data-quarto-table-cell-role="th">WZ_LAW_OFFCR_IND</th>
+<th data-quarto-table-cell-role="th">WZ_LN_CLOSURE</th>
+<th data-quarto-table-cell-role="th">WZ_MOVING</th>
+<th data-quarto-table-cell-role="th">WZ_OTHER</th>
+<th data-quarto-table-cell-role="th">WZ_SHLDER_MDN</th>
+<th data-quarto-table-cell-role="th">WZ_WORKERS_INJ_KILLED</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2005000003</td>
+<td>NaN</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2005000044</td>
+<td>NaN</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2005000073</td>
+<td>NaN</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2005001018</td>
+<td>NaN</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>2005001021</td>
+<td>NaN</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 99 columns</p>
+</div>
+</div>
+</div>
+<div id="3fda2819-1171-4d67-a89d-e366f2038896" class="cell" data-execution_count="44">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">"CRASH_YEAR"</span>, <span class="st">"HOUR_OF_DAY"</span>, <span class="st">"DAY_OF_WEEK"</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"CRASH_YEAR"</span>] <span class="op">=</span> df[<span class="st">"CRASH_YEAR"</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"HOUR_OF_DAY"</span>] <span class="op">=</span> df[<span class="st">"HOUR_OF_DAY"</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">CRN</th>
+<th data-quarto-table-cell-role="th">ARRIVAL_TM</th>
+<th data-quarto-table-cell-role="th">AUTOMOBILE_COUNT</th>
+<th data-quarto-table-cell-role="th">BELTED_DEATH_COUNT</th>
+<th data-quarto-table-cell-role="th">BELTED_SUSP_SERIOUS_INJ_COUNT</th>
+<th data-quarto-table-cell-role="th">BICYCLE_COUNT</th>
+<th data-quarto-table-cell-role="th">BICYCLE_DEATH_COUNT</th>
+<th data-quarto-table-cell-role="th">BICYCLE_SUSP_SERIOUS_INJ_COUNT</th>
+<th data-quarto-table-cell-role="th">BUS_COUNT</th>
+<th data-quarto-table-cell-role="th">CHLDPAS_DEATH_COUNT</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">WORK_ZONE_LOC</th>
+<th data-quarto-table-cell-role="th">WORK_ZONE_TYPE</th>
+<th data-quarto-table-cell-role="th">WZ_CLOSE_DETOUR</th>
+<th data-quarto-table-cell-role="th">WZ_FLAGGER</th>
+<th data-quarto-table-cell-role="th">WZ_LAW_OFFCR_IND</th>
+<th data-quarto-table-cell-role="th">WZ_LN_CLOSURE</th>
+<th data-quarto-table-cell-role="th">WZ_MOVING</th>
+<th data-quarto-table-cell-role="th">WZ_OTHER</th>
+<th data-quarto-table-cell-role="th">WZ_SHLDER_MDN</th>
+<th data-quarto-table-cell-role="th">WZ_WORKERS_INJ_KILLED</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>2005000003</td>
+<td>NaN</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>2005000044</td>
+<td>NaN</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>2005000073</td>
+<td>NaN</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>2005001018</td>
+<td>NaN</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>2005001021</td>
+<td>NaN</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 99 columns</p>
+</div>
+</div>
+</div>
+<div id="3fec20cc-210c-47d6-82a5-72f2f8334cba" class="cell" data-execution_count="45">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>crashes_per_year <span class="op">=</span> df[<span class="st">"CRASH_YEAR"</span>].value_counts().sort_index()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>crashes_per_year.plot(kind<span class="op">=</span><span class="st">'line'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Total Crashes per Year"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Year"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Crashes"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Untitled_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>At first glance, the trend is not strictly increasing or decreasing — instead, it fluctuates.</p>
+<p>But here’s the interesting twist:</p>
+<p>There are noticeable dips in certain years, and a huge spike in 2012. (https://www.cnn.com/2012/07/23/travel/us-traffic-fatalities)</p>
+<p>The reason for this spike is unclear but is hypothesized to be events of extreme weather. Realistically, though, I am of the opinion that even several extreme weather events are unlikely to cause such a huge hike in crashes.</p>
+<p>A more reasonable and expected pattern in the data above is the dip in 2020. These dips often align with external disruptions (like reduced travel periods).</p>
+<p>This suggests something important: Crash frequency is strongly tied to human activity levels. The pandemic led to a widespread lockdown in 2020, resulting in a sharp decline in road traffic and, consequently, in crashes.</p>
+<p>Fewer people on the road → fewer crashes.</p>
+<div id="79761012-3538-451c-b1c4-854523d271c5" class="cell" data-execution_count="46">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"FATAL_COUNT"</span> <span class="kw">in</span> df.columns:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    fatal_by_hour <span class="op">=</span> df.groupby(<span class="st">"HOUR_OF_DAY"</span>)[<span class="st">"FATAL_COUNT"</span>].<span class="bu">sum</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    fatal_by_hour.plot(kind<span class="op">=</span><span class="st">'line'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">"Fatal Crashes by Hour"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">"Hour (0-24)"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">"Total Fatalities"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    plt.xlim(<span class="dv">0</span>, <span class="dv">24</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    plt.xticks(<span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">25</span>, <span class="dv">2</span>))</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    plt.savefig(<span class="st">"fatal_crashes_by_hour.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Untitled_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is fascinating. There is a vague but visible U-shape. Fatal crashes more often take place in the first few hours of the day, and the last few hours of the day, with a particular emphasizes on the last few hours.</p>
+<p>Now this makes intuitive sense! Dark surroundings and low-visiblity often cause terrible accidents that lead to fatalities.</p>
+<p>Morning rush hour (6 - 9 am): 22</p>
+<p>Evening rush hour (4 - 7 pm): 48</p>
+<p>There’s a huge difference! The evening rush hour, featuring high traffic and often taking place after sunset, is when a bulk of accidents take place.</p>
+<div id="f230b486-6cd8-4c13-b21d-237c5f6e9cef" class="cell" data-execution_count="47">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>day_map <span class="op">=</span> {<span class="dv">1</span>: <span class="st">"Sunday"</span>, <span class="dv">2</span>: <span class="st">"Monday"</span>, <span class="dv">3</span>: <span class="st">"Tuesday"</span>, <span class="dv">4</span>: <span class="st">"Wednesday"</span>, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="dv">5</span>: <span class="st">"Thursday"</span>, <span class="dv">6</span>: <span class="st">"Friday"</span>, <span class="dv">7</span>: <span class="st">"Saturday"</span>}</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"DAY_NAME"</span>] <span class="op">=</span> df[<span class="st">"DAY_OF_WEEK"</span>].<span class="bu">map</span>(day_map)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Now count the occurrences of the names</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>crashes_by_day <span class="op">=</span> df[<span class="st">"DAY_NAME"</span>].value_counts()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Reindex using the list of names</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>order <span class="op">=</span> [<span class="st">"Monday"</span>, <span class="st">"Tuesday"</span>, <span class="st">"Wednesday"</span>, <span class="st">"Thursday"</span>, <span class="st">"Friday"</span>, <span class="st">"Saturday"</span>, <span class="st">"Sunday"</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>crashes_by_day <span class="op">=</span> crashes_by_day.reindex(order)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Plot (this will now work!)</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>crashes_by_day.plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Untitled_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sometimes no observable patterns are also an importance thing to note. There isn’t any clear indication that certain days of the week are busier and involve more accidents.</p>
+<div id="e5e55dee-bb9f-4d5e-9d18-43071f9f45dd" class="cell" data-execution_count="48">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pivot <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">"HOUR_OF_DAY"</span>, columns<span class="op">=</span><span class="st">"DAY_OF_WEEK"</span>, aggfunc<span class="op">=</span><span class="st">"size"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.figure()</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.imshow(pivot, aspect<span class="op">=</span><span class="st">'auto'</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">"Number of Crashes"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Crash Density Heatmap (Hour vs Day)"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Day of Week"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Hour"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="bu">len</span>(pivot.columns)), pivot.columns, rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">24</span>))</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Untitled_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This heatmap reveals a clear “rush hour” correlation, with the highest crash density (indicated by the yellow bands) occurring between 3:00 PM and 6:00 PM (Hours 15–18) on weekdays. This suggests that the afternoon commute is significantly more hazardous than the morning peak. While a secondary morning spike is visible around 7:00 AM, it is less intense. Geometrically, the “dark” regions from midnight to 5:00 AM reflect the lowest risk due to reduced traffic volume. Interestingly, the weekend patterns (Days 1 and 7) lack the distinct commuter peaks, showing a more uniform distribution of incidents throughout the afternoon.</p>
+<div id="60c915b6-1701-4d49-945c-755e49e5bdba" class="cell" data-execution_count="49">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>Index(['CRN', 'ARRIVAL_TM', 'AUTOMOBILE_COUNT', 'BELTED_DEATH_COUNT',
+       'BELTED_SUSP_SERIOUS_INJ_COUNT', 'BICYCLE_COUNT', 'BICYCLE_DEATH_COUNT',
+       'BICYCLE_SUSP_SERIOUS_INJ_COUNT', 'BUS_COUNT', 'CHLDPAS_DEATH_COUNT',
+       'CHLDPAS_SUSP_SERIOUS_INJ_COUNT', 'COLLISION_TYPE', 'COMM_VEH_COUNT',
+       'CONS_ZONE_SPD_LIM', 'COUNTY', 'CRASH_MONTH', 'CRASH_YEAR',
+       'DAY_OF_WEEK', 'DEC_LATITUDE', 'DEC_LONGITUDE', 'DISPATCH_TM',
+       'DISTRICT', 'DRIVER_COUNT_16YR', 'DRIVER_COUNT_17YR',
+       'DRIVER_COUNT_18YR', 'DRIVER_COUNT_19YR', 'DRIVER_COUNT_20YR',
+       'DRIVER_COUNT_50_64YR', 'DRIVER_COUNT_65_74YR', 'DRIVER_COUNT_75PLUS',
+       'EST_HRS_CLOSED', 'FATAL_COUNT', 'HEAVY_TRUCK_COUNT',
+       'HORSE_BUGGY_COUNT', 'HOUR_OF_DAY', 'ILLUMINATION', 'INJURY_COUNT',
+       'INTERSECTION_RELATED', 'INTERSECT_TYPE', 'LANE_CLOSED', 'LATITUDE',
+       'LN_CLOSE_DIR', 'LOCATION_TYPE', 'LONGITUDE', 'MAX_SEVERITY_LEVEL',
+       'MCYCLE_DEATH_COUNT', 'MCYCLE_SUSP_SERIOUS_INJ_COUNT',
+       'MOTORCYCLE_COUNT', 'MUNICIPALITY', 'NONMOTR_COUNT',
+       'NONMOTR_DEATH_COUNT', 'NONMOTR_SUSP_SERIOUS_INJ_COUNT',
+       'NTFY_HIWY_MAINT', 'PED_COUNT', 'PED_DEATH_COUNT',
+       'PED_SUSP_SERIOUS_INJ_COUNT', 'PERSON_COUNT', 'POLICE_AGCY',
+       'POSSIBLE_INJ_COUNT', 'RDWY_SURF_TYPE_CD', 'RELATION_TO_ROAD',
+       'ROADWAY_CLEARED', 'ROAD_CONDITION', 'SCH_BUS_IND', 'SCH_ZONE_IND',
+       'SECONDARY_CRASH', 'SMALL_TRUCK_COUNT', 'SPEC_JURIS_CD',
+       'SUSP_MINOR_INJ_COUNT', 'SUSP_SERIOUS_INJ_COUNT', 'SUV_COUNT',
+       'TCD_FUNC_CD', 'TCD_TYPE', 'TFC_DETOUR_IND', 'TIME_OF_DAY',
+       'TOTAL_UNITS', 'TOT_INJ_COUNT', 'UNBELTED_OCC_COUNT', 'UNB_DEATH_COUNT',
+       'UNB_SUSP_SERIOUS_INJ_COUNT', 'UNK_INJ_DEG_COUNT', 'UNK_INJ_PER_COUNT',
+       'URBAN_RURAL', 'VAN_COUNT', 'VEHICLE_COUNT', 'WEATHER1', 'WEATHER2',
+       'WORKERS_PRES', 'WORK_ZONE_IND', 'WORK_ZONE_LOC', 'WORK_ZONE_TYPE',
+       'WZ_CLOSE_DETOUR', 'WZ_FLAGGER', 'WZ_LAW_OFFCR_IND', 'WZ_LN_CLOSURE',
+       'WZ_MOVING', 'WZ_OTHER', 'WZ_SHLDER_MDN', 'WZ_WORKERS_INJ_KILLED',
+       'DAY_NAME'],
+      dtype='str')</code></pre>
+</div>
+</div>
+<div id="67e73ef1-c65f-48ca-a935-a7153ee1e88f" class="cell" data-execution_count="52">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>geometry <span class="op">=</span> [Point(xy) <span class="cf">for</span> xy <span class="kw">in</span> <span class="bu">zip</span>(df[<span class="st">"DEC_LONGITUDE"</span>], df[<span class="st">"DEC_LATITUDE"</span>])]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.GeoDataFrame(df, geometry<span class="op">=</span>geometry)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>gdf.plot(markersize<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Geographic Distribution of Crashes"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>gdf.plot(markersize<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Crash Density Map (Hotspots Emerging)"</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Untitled_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Untitled_files/figure-html/cell-9-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The above is a reflection of which roads are busier - the ones typically in center city, and the regions with less traffic in surrounding areas where the accident density is lower.</p>
+<p>Pretty cool how this distribution essentially draws a map of the data collection area!</p>
+<div id="4ab55f36-405b-4f53-8ae6-5c74fbdd153f" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>In Conclsio<span class="op">**</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
 
