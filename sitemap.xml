@@ -1,39 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/about.html</loc>
-    <lastmod>2026-03-23T00:49:58.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/000_test_post/index.html</loc>
-    <lastmod>2026-03-23T00:49:58.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/001_first_post/medical_knowledge.html</loc>
-    <lastmod>2026-03-23T00:49:58.663Z</lastmod>
-  </url>
-  <url>
-    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/DOW4/Untitled.html</loc>
-    <lastmod>2026-03-23T00:49:58.671Z</lastmod>
-  </url>
-  <url>
     <loc>https://arhansinghal.github.io/comm3180_S26_Blog/index.html</loc>
-    <lastmod>2026-03-23T00:49:58.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/DOW1/Blog1.html</loc>
-    <lastmod>2026-03-23T00:49:58.663Z</lastmod>
-  </url>
-  <url>
-    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/DOW3/Untitled.html</loc>
-    <lastmod>2026-03-23T00:49:58.669Z</lastmod>
+    <lastmod>2026-05-13T05:06:53.146Z</lastmod>
   </url>
   <url>
     <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/DOW2/DOW2_blog.html</loc>
-    <lastmod>2026-03-23T00:49:58.667Z</lastmod>
+    <lastmod>2026-05-13T05:06:53.150Z</lastmod>
   </url>
   <url>
     <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/DOW5/Untitled.html</loc>
-    <lastmod>2026-03-23T00:49:58.673Z</lastmod>
+    <lastmod>2026-05-13T05:06:53.156Z</lastmod>
+  </url>
+  <url>
+    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/DOW1/Blog1.html</loc>
+    <lastmod>2026-05-13T05:06:53.147Z</lastmod>
+  </url>
+  <url>
+    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/DOW3/Untitled.html</loc>
+    <lastmod>2026-05-13T05:06:53.152Z</lastmod>
+  </url>
+  <url>
+    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/posts/DOW4/Untitled.html</loc>
+    <lastmod>2026-05-13T05:06:53.154Z</lastmod>
+  </url>
+  <url>
+    <loc>https://arhansinghal.github.io/comm3180_S26_Blog/about.html</loc>
+    <lastmod>2026-05-13T05:06:53.146Z</lastmod>
   </url>
 </urlset>
